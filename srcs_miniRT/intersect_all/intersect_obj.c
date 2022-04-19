@@ -14,6 +14,20 @@
 
 static t_coefficients	ft_get_cylinder_k(t_cylinder *cylinder, t_ray *ray);
 
+static void		ft_check_t(double *t, t_cylinder *cylinder, t_ray *ray)
+{
+	t_vector q;
+	t_vector p;
+
+	p = ft_vector_add(cylinder->center, ft_vector_multiplication(cylinder->orientation, cylinder->height));
+	q = ft_vector_add(ray->v_o, ft_vector_multiplication(ray->v_d, *t));
+
+	if (ft_vectors_dot_product(cylinder->orientation, ft_vectors_subtraction(q, cylinder->center)) <= 0)
+		*t = -1;
+	if (ft_vectors_dot_product(cylinder->orientation, ft_vectors_subtraction(q, p)) >= 0)
+		*t = -1;
+}
+
 int	ft_intersect_cylinder(t_ray *ray, t_cylinder *cylinder, double *t)
 {
 	double	t1;
@@ -23,6 +37,10 @@ int	ft_intersect_cylinder(t_ray *ray, t_cylinder *cylinder, double *t)
 	t2 = 0;
 	if (!ft_get_discriminant(ft_get_cylinder_k(cylinder, ray), &t1, &t2))
 		return (0);
+	if (t1 > 0)
+		ft_check_t(&t1, cylinder, ray);
+	if (t2 > 0)
+		ft_check_t(&t2, cylinder, ray);
 	if (t1 < 0)
 	{
 		if (t2 < 0)
