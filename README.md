@@ -7,12 +7,15 @@
 $>make
 $>./miniRT ./scenes/1_spheres.rt
 ```
+
+```
 zoom & translate:
   camera view point:  C
   camera orientation: V
   light:              L
-zoom: - +  
-translate: ▴ ▾ ◂ ▸  
+zoom: - + 
+translate: ▴ ▾ ◂ ▸
+```
 
 ```
 $>./miniRT ./scenes/1_spheres.rt
