@@ -18,6 +18,11 @@ translate: ▴ ▾ ◂ ▸
 ```
 
 ```
+$>./miniRT ./scenes/6_spheres.rt
+```
+<img width="786" alt="6" src="https://user-images.githubusercontent.com/89840597/167454301-f30c9318-28d3-4390-b79d-4a5266f7131b.png">
+
+```
 $>./miniRT ./scenes/1_spheres.rt
 ```
 <img width="791" alt="1" src="https://user-images.githubusercontent.com/89840597/166673586-8d464bd0-b61a-4567-9423-bed48879ad7f.png">
